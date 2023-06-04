@@ -26,6 +26,10 @@ def clean_player_data(PLAYERS):
         height = ea["height"]
 
         clean_height = height.split(" ")[0]
+        try:
+            clean_height = int(clean_height)
+        except:
+            print(f"Exception: Unable to convert player {ea['name']} height to integer")
 
         if experience.lower() == "yes":
             experience_bool = True

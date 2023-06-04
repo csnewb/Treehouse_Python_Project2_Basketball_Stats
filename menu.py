@@ -116,7 +116,11 @@ def view_team_stats(assigned_teams, teams):
         guardian_list = []
         for player in team_roster:
             name_list.append(player["name"])
-            height_list.append(int(player["height"]))
+            try:
+                height_list.append(int(player["height"]))
+            except:
+                print(f"Exception: Unable to convert player {player['name']} height to int, removing from calculations")
+
             if player["experience"] == True:
                 num_experienced += 1
             else:
