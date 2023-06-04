@@ -3,8 +3,6 @@ import settings
 import utilities
 
 
-
-
 def main_loop():
     TEAMS = utilities.import_teams()
     PLAYERS = utilities.import_players()
@@ -13,7 +11,6 @@ def main_loop():
     print(settings.greeting)
     while True:
         menu.main_menu(clean_players, TEAMS, assigned_teams)
-
 
 
 if __name__ == "__main__":

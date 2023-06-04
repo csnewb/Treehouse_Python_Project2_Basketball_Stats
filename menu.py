@@ -1,8 +1,8 @@
-import settings
 import utilities
 
+
 def main_menu(players, teams, assigned_teams):
-    print("\n"* 3)
+    print("\n" * 3)
     print("What would you like to do?")
     menu_options = (
         "1 - Re-Assign Players to Teams",
@@ -28,6 +28,7 @@ def main_menu(players, teams, assigned_teams):
         view_team_stats(assigned_teams, teams)
     else:
         quit()
+
 
 def reassign_teams(players, teams, show_work=False):
     new_assigned_teams = utilities.balance_teams(players, teams, show_work)
@@ -88,7 +89,6 @@ def view_team_stats(assigned_teams, teams):
     prompt = f"Choice (0 to cancel): "
     choice = utilities.force_int(prompt, 0, len(teams))
 
-
     if choice != 0:
         team_roster = []
         chosen_team = teams[choice - 1]
@@ -129,7 +129,6 @@ def view_team_stats(assigned_teams, teams):
         avg_height = round(sum(height_list) / len(height_list), 1)
         avg_height_ft = int(avg_height // 12)
         avg_height_in = int(avg_height % 12)
-
 
         print("\n" * 3)
         print(f"--- Showing stats for team: {chosen_team} ---\n")
