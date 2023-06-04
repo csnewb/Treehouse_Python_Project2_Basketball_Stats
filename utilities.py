@@ -1,12 +1,13 @@
 import random
-
 import constants
+
 
 def import_players():
     PLAYERS = []
     for ea in constants.PLAYERS:
         PLAYERS.append(ea)
     return PLAYERS
+
 
 def import_teams():
     TEAMS = []
@@ -31,13 +32,11 @@ def clean_player_data(PLAYERS):
         elif experience.lower() == "no":
             experience_bool = False
         else:
-            # Todo: Throw an excpetion here
+            print(f"invalid player experience for {ea['name']} defaulting to False")
             experience_bool = False
-            pass
 
         clean_guardians = guardians.split("and")
         clean_guardians = [ea.lstrip() for ea in clean_guardians]
-
 
         clean_stats = {
             'name': name,
@@ -74,6 +73,7 @@ def balance_teams(clean_players, teams, show_work=False):
 
     print(f"\nTeam Re-Assignment Complete")
     return all_assigned_teams
+
 
 def evenly_split_players(player_list, teams, all_assigned_teams, show_work):
     assignable_players, unassignable_players = get_assignable_players(player_list, teams)
